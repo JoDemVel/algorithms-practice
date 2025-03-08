@@ -9,6 +9,6 @@ WITH delivery_first_order as (
 
 select
     ROUND((
-        sum((order_date = customer_pref_delivery_date)::int) / sum(1)::float
+        avg((order_date = customer_pref_delivery_date)::int)
     )::numeric * 100, 2) as immediate_percentage
 from delivery_first_order 
